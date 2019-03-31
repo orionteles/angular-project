@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'projeto-padrao';
+
+  @Input() position = 'normal';
+
+  user: any;
+
+  userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
 }

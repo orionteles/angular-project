@@ -1,109 +1,96 @@
-<div class="row">
-  <div class="col-md-12">
-    <nb-card class="inline-form-card">
-      <nb-card-header>Inline form</nb-card-header>
-      <nb-card-body>
-        <form #modelForm="ngForm">
-          <div [hidden]="modelForm.submitted">
+<app-card title="Formulário de Teste">
+  <form #modelForm="ngForm">
+    <div [hidden]="modelForm.submitted">
 
-            <custom-input [(ngModel)]='model.nome' name='nome' title='Nome' [required]="true"></custom-input>
-            <custom-input [(ngModel)]='model.telefone' name='telefone' title='Telefone'></custom-input>
-            <custom-input [(ngModel)]='model.endereco' name='endereco' title='Endereço'></custom-input>
+      <custom-input [(ngModel)]='model.nome' name='nome' title='Nome' required="true"></custom-input>
+      <custom-input [(ngModel)]='model.telefone' name='telefone' title='Telefone'></custom-input>
+      <custom-input [(ngModel)]='model.endereco' name='endereco' title='Endereço' required="true"></custom-input>
 
+      <button type="submit" class="btn btn-default" [disabled]="modelForm.invalid">Submit</button>
+      <button type="button" class="btn btn-default" (click)="modelForm.resetForm({})">Reset</button>
+    </div>
 
+    <div class="submitted-message" *ngIf="modelForm.submitted">
+      <p>model has been submitted: {{ modelForm.value.firstname + ' ' + modelForm.value.surname }}</p>
+      <button (click)="modelForm.resetForm({})">Add model</button>
+    </div>
+  </form>
 
+  <ng-select [items]="items"></ng-select>
 
-            <button type="submit" class="btn btn-default" [disabled]="modelForm.invalid">Submit</button>
-            <button type="button" class="btn btn-default" (click)="modelForm.resetForm({})">Reset</button>
-          </div>
+  {{modelForm.value | json}}
+</app-card>
 
-          <div class="submitted-message" *ngIf="modelForm.submitted">
-            <p>model has been submitted: {{ modelForm.value.firstname + ' ' + modelForm.value.surname }}</p>
-            <button (click)="modelForm.resetForm({})">Add model</button>
-          </div>
-        </form>
-
-        <ng-select [items]="items"></ng-select>
-
-        {{modelForm.value | json}}
-      </nb-card-body>
-    </nb-card>
-  </div>
-</div>
-
-<input type="button" class="btn btn-success" value="Enviar">
-
-
-<table datatable class="row-border hover">
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>First name</th>
-    <th>Last name</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>1</td>
-    <td>Foo</td>
-    <td>Bar</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Someone</td>
-    <td>Youknow</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Iamout</td>
-    <td>Ofinspiration</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>Yoda</td>
-    <td>Skywalker</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>Patrick</td>
-    <td>Dupont</td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td>Barack</td>
-    <td>Obama</td>
-  </tr>
-  <tr>
-    <td>7</td>
-    <td>François</td>
-    <td>Holland</td>
-  </tr>
-  <tr>
-    <td>8</td>
-    <td>Michel</td>
-    <td>Popo</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td>Chuck</td>
-    <td>Norris</td>
-  </tr>
-  <tr>
-    <td>10</td>
-    <td>Simon</td>
-    <td>Robin</td>
-  </tr>
-  <tr>
-    <td>11</td>
-    <td>Louis</td>
-    <td>Lin</td>
-  </tr>
-  <tr>
-    <td>12</td>
-    <td>Zelda</td>
-    <td>Link</td>
-  </tr>
-  </tbody>
-</table>
-
-
+<app-card title="Tabela Teste">
+  <table datatable class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>First name</th>
+      <th>Last name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>Foo</td>
+      <td>Bar</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Someone</td>
+      <td>Youknow</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Iamout</td>
+      <td>Ofinspiration</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Yoda</td>
+      <td>Skywalker</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Patrick</td>
+      <td>Dupont</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Barack</td>
+      <td>Obama</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>François</td>
+      <td>Holland</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Michel</td>
+      <td>Popo</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Chuck</td>
+      <td>Norris</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Simon</td>
+      <td>Robin</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Louis</td>
+      <td>Lin</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Zelda</td>
+      <td>Link</td>
+    </tr>
+    </tbody>
+  </table>
+</app-card>

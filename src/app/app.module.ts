@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -6,8 +7,7 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from "@angular/forms";
 import { NgSelectModule } from '@ng-select/ng-select';
-import { InputComponent } from './forms/input/input.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 import {
   NbThemeModule,
   NbLayoutModule,
@@ -16,24 +16,27 @@ import {
   NbInputModule,
   NbCardModule
 } from '@nebular/theme';
-import { NpmComponent } from './npm/npm.component';
 import {DataTablesModule} from "angular-datatables";
+import {CardComponent} from "./componentes/card/card.component";
+import {InputComponent} from "./componentes/forms/input/input.component";
+import { UsuarioListagemComponent } from './usuario/usuario-listagem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormularioComponent,
     InputComponent,
-    NpmComponent,
+    CardComponent,
+    UsuarioListagemComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     NgSelectModule,
     AppRoutingModule,
-    NoopAnimationsModule,
     NbInputModule,
     DataTablesModule,
+    HttpClientModule,
     NbCardModule,
     NbThemeModule.forRoot({ name: 'corporate' }),
     NbLayoutModule,
