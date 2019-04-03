@@ -1,5 +1,11 @@
+import {Endereco} from "./endereco";
+
 export class Usuario{
   id: number
-  name: string
-  lastname?: string
+  nome: string
+  telefone?: string
+  data_nascimento?: string
+  email?: string
+  senha?: string
+  endereco: Endereco
 }

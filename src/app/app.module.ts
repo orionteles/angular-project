@@ -7,11 +7,13 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from "@angular/forms";
 import { NgSelectModule } from '@ng-select/ng-select';
+import {NgxMaskModule} from 'ngx-mask'
 
 import {
   NbThemeModule,
   NbLayoutModule,
   NbSidebarModule,
+  NbDatepickerModule,
   NbSidebarService,
   NbInputModule,
   NbCardModule
@@ -20,6 +22,7 @@ import {DataTablesModule} from "angular-datatables";
 import {CardComponent} from "./componentes/card/card.component";
 import {InputComponent} from "./componentes/forms/input/input.component";
 import { UsuarioListagemComponent } from './usuario/usuario-listagem.component';
+import { UsuarioFormularioComponent } from './usuario/usuario-formulario.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { UsuarioListagemComponent } from './usuario/usuario-listagem.component';
     InputComponent,
     CardComponent,
     UsuarioListagemComponent,
+    UsuarioFormularioComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,9 @@ import { UsuarioListagemComponent } from './usuario/usuario-listagem.component';
     DataTablesModule,
     HttpClientModule,
     NbCardModule,
+    NbDatepickerModule,
     NbThemeModule.forRoot({ name: 'corporate' }),
+    NgxMaskModule.forRoot(),
     NbLayoutModule,
     NbSidebarModule
   ],
