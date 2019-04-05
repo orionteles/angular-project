@@ -11,6 +11,7 @@
            fullWidth
            class="form-control"
            required="{{required}}"
+           mask="{{mascara}}"
            [(ngModel)]="value" #myinput="ngModel"
     >
     <div *ngIf="myinput.invalid && (myinput.dirty || myinput.touched)" class="alert alert-danger">

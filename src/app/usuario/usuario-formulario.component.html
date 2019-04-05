@@ -1,21 +1,29 @@
 <app-card title="Usuário">
   <form #form="ngForm">
 
-    <custom-input [(ngModel)]='usuario.nome' name='nome' title='Nome' required="required"></custom-input>
-    <custom-input [(ngModel)]='usuario.telefone' name='telefone' title='Telefone' ></custom-input>
-    <custom-input [(ngModel)]='usuario.email' name='email' title='E-mail'></custom-input>
-    <custom-input [(ngModel)]='usuario.data_nascimento' name='data_nascimento' title='Dt. Nascimento'></custom-input>
-    <custom-input [(ngModel)]='usuario.endereco.cep' name='cep' title='CEP' (change)="buscarCep()"></custom-input>
-    <custom-input [(ngModel)]='usuario.endereco.logradouro' name='Logradouro' title='logradouro'></custom-input>
-    <custom-input [(ngModel)]='usuario.endereco.complemento' name='Complemento' title='complemento'></custom-input>
-    <custom-input [(ngModel)]='usuario.endereco.numero' name='numero' title='Número'></custom-input>
-    <custom-input [(ngModel)]='usuario.endereco.bairro' name='bairro' title='Bairro'></custom-input>
-    <custom-input [(ngModel)]='usuario.endereco.uf' name='uf' title='UF'></custom-input>
-    <custom-input [(ngModel)]='usuario.endereco.localidade' name='municipio_id' title='Município'></custom-input>
+    <input nbInput
+           [nbDatepicker]="formpicker"
+    >
+    <nb-datepicker #formpicker></nb-datepicker>
+
+
+    <form-input [(ngModel)]='usuario.nome' name='nome' title='Nome' required="required"></form-input>
+    <form-input [(ngModel)]='usuario.telefone' name='telefone' title='Telefone' mascara="(00) 00000-0000"></form-input>
+    <form-input [(ngModel)]='usuario.email' name='email' title='E-mail'></form-input>
+    <form-input [(ngModel)]='usuario.data_nascimento' name='data_nascimento' title='Dt. Nascimento'></form-input>
+    <form-input [(ngModel)]='usuario.endereco.cep' name='cep' title='CEP'  mascara="00.000-000" (change)="buscarCep()"></form-input>
+    <form-input [(ngModel)]='usuario.endereco.logradouro' name='Logradouro' title='logradouro'></form-input>
+    <form-input [(ngModel)]='usuario.endereco.complemento' name='Complemento' title='complemento'></form-input>
+    <form-input [(ngModel)]='usuario.endereco.numero' name='numero' title='Número'></form-input>
+    <form-input [(ngModel)]='usuario.endereco.bairro' name='bairro' title='Bairro'></form-input>
+    <form-input [(ngModel)]='usuario.endereco.uf' name='uf' title='UF'></form-input>
+    <form-input [(ngModel)]='usuario.endereco.localidade' name='municipio_id' title='Município'></form-input>
 
     <button type="submit" class="btn btn-success" [disabled]="form.invalid">Enviar</button>
     <a href="/usuario" class="btn btn-danger" >Voltar</a>
 
   </form>
 
+
+  {{form.value | json}}
 </app-card>

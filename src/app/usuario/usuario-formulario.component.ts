@@ -3,6 +3,7 @@ import {Usuario} from "../models/usuario";
 import {Endereco} from "../models/endereco";
 import {UsuarioService} from "../services/usuario.service";
 import {EnderecoService} from "../services/endereco.service";
+import { NbDateService } from '@nebular/theme';
 
 @Component({
   selector: 'app-usuario-formulario',
@@ -10,14 +11,12 @@ import {EnderecoService} from "../services/endereco.service";
 })
 export class UsuarioFormularioComponent implements OnInit {
 
-  min: Date;
-  max: Date;
-
   usuario: Usuario = new Usuario()
 
   constructor(
     private usuarioService: UsuarioService,
     private enderecoService: EnderecoService,
+    protected dateService: NbDateService<Date>
   ) {
     this.usuario.endereco = new Endereco()
   }

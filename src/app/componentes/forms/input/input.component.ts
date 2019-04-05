@@ -14,7 +14,7 @@ export const Input_VALUE_VALIDATOR : any = {
 }
 
 @Component({
-  selector: 'custom-input',
+  selector: 'form-input',
   providers: [Input_VALUE_ACCESSOR, Input_VALUE_VALIDATOR],
   templateUrl: './input.component.html',
 })
@@ -23,6 +23,7 @@ export class InputComponent implements ControlValueAccessor, Validator {
   @Input() title;
   @Input() required = false;
   @Input() fieldSize = 'medium';
+  @Input() mascara;
 
   private innerValue: any = '';
 
